@@ -6,6 +6,7 @@ const leitor = readLine.createInterface({
   output: process.stdout
 });
 const GREEN  = 0;
+const RED  = 1;
 const TOP = 0;
 let cube = [];
 cube[TOP] = [[],[],[]];
