@@ -7,6 +7,7 @@ const leitor = readLine.createInterface({
 });
 const GREEN  = 0;
 const RED  = 1;
+const YELLOW  = 2;
 const TOP = 0;
 let cube = [];
 cube[TOP] = [[],[],[]];
