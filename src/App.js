@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import CubeeFace from './components/CubeeFace/CubeeFace';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <CubeeFace valor="R"/>
       </header>
     </div>
   );

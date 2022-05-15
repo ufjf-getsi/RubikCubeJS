@@ -1,0 +1,8 @@
+.CubeeFace {
+  border: 1px solid white;
+  width: 1cm;
+  height: 1cm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
