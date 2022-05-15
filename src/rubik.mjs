@@ -1,5 +1,5 @@
-const { exit } = require("process");
-const readLine = require("readline");
+import { exit } from "process";
+import readLine from "readline";
 
 const leitor = readLine.createInterface({
     input: process.stdin,
