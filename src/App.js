@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import CubeeFace from './components/CubeeFace/CubeeFace';
+import logo from "./logo.svg";
+import "./App.css";
+import CubeeFace from "./components/CubeeFace/CubeeFace";
 
 function App() {
   return (
@@ -18,7 +18,41 @@ function App() {
         >
           Learn React
         </a>
-        <CubeeFace valor="R"/>
+        <table>
+          <tr>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+            <td>
+              <CubeeFace valor={"R"} />
+            </td>
+          </tr>
+        </table>
       </header>
     </div>
   );
