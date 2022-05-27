@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import SingleSquare from "./components/SingleSquare/SingleSquare";
+import CubeFace from "./components/CubeFace/CubeFace";
 
 function App() {
   return (
@@ -18,41 +18,7 @@ function App() {
         >
           Learn React
         </a>
-        <table>
-          <tr>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-            <td>
-              <SingleSquare valor={"R"} />
-            </td>
-          </tr>
-        </table>
+              <CubeFace valor={"R"} />
       </header>
     </div>
   );
