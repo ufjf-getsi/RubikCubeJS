@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import CubeeFace from "./components/CubeeFace/CubeeFace";
+import SingleSquare from "./components/SingleSquare/SingleSquare";
 
 function App() {
   return (
@@ -21,35 +21,35 @@ function App() {
         <table>
           <tr>
             <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
             </td>
             <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
             </td>
             <td>
-              <CubeeFace valor={"R"} />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <CubeeFace valor={"R"} />
-            </td>
-            <td>
-              <CubeeFace valor={"R"} />
-            </td>
-            <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
             </td>
           </tr>
           <tr>
             <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
             </td>
             <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
             </td>
             <td>
-              <CubeeFace valor={"R"} />
+              <SingleSquare valor={"R"} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <SingleSquare valor={"R"} />
+            </td>
+            <td>
+              <SingleSquare valor={"R"} />
+            </td>
+            <td>
+              <SingleSquare valor={"R"} />
             </td>
           </tr>
         </table>
