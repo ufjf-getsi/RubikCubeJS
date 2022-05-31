@@ -11,13 +11,6 @@ function App() {
   const TOP = 4;
   const BOTTOM = 5;
 
-  const GREEN = 0;
-  const ORANGE = 1;
-  const RED = 2;
-  const BLUE = 3;
-  const WHITE = 4;
-  const YELLOW = 5;
-
   let cube = setCubeInitialValues();
   return (
     <div className="App">
@@ -38,7 +31,7 @@ function App() {
         <table>
           <tbody>
             <tr>
-              <td colSpan="2" class="toRight">
+              <td colSpan="2" className="toRight">
                 <CubeFace valores={cube[TOP]} />
               </td>
             </tr>
@@ -56,7 +49,7 @@ function App() {
               </td>
             </tr>
             <tr>
-              <td colSpan="2" class="toRight">
+              <td colSpan="2" className="toRight">
                 <CubeFace valores={cube[BOTTOM]} />
               </td>
             </tr>
