@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from "./logo.svg";
 import "./App.css";
 import CubeFace from "./components/CubeFace/CubeFace";
@@ -19,6 +19,7 @@ class App extends React.Component {
     this.state = {
       cube: setCubeInitialValues(),
     };
+    //const [cube, setCube] = useState(setCubeInitialValues());
   }
 
   handleClick(val) {
@@ -54,24 +55,11 @@ class App extends React.Component {
     return (
       <div className="App" >
         <header className="App-header">
-          {/*<img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        */}
           <table>
             <tbody>
               <tr>
                 <td colSpan="2" className="toRight">
-                  {this.renderCube(TOP)}
+                  <CubeFace values={this.state.cube[TOP]} />
                 </td>
               </tr>
               <tr>
@@ -123,7 +111,7 @@ class App extends React.Component {
 export default App;
 
 function setCubeInitialValues() {
-  let cube = new Array();
+  let cube = [];
   for (let i = 0; i < 6; i++) {
     cube.push([[i, i, i], [i, i, i], [i, i, i]]);
   }
