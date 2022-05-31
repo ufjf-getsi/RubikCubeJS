@@ -1,12 +1,15 @@
+import React from 'react';
 import logo from "./logo.svg";
 import "./App.css";
 import CubeFace from "./components/CubeFace/CubeFace";
 
 function App() {
+  let valores = ["R", "R", "R", "R", "R", "Y", "R", "R", "R"];
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
+        {/*<img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -18,7 +21,8 @@ function App() {
         >
           Learn React
         </a>
-              <CubeFace valor={"R"} />
+        */}
+        <CubeFace valores={valores} />
       </header>
     </div>
   );
