@@ -1,9 +1,9 @@
 import React from "react";
 import "./MoveButton.css";
 
-export default function MoveButton({ valor }) {
-    let character = valor;
-    if (valor == valor.toLowerCase()) {
+export default function MoveButton({ value }) {
+    let character = value;
+    if (value == value.toLowerCase()) {
         character = character.toUpperCase();
         character += "'";
     }

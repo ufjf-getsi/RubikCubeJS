@@ -33,25 +33,25 @@ function App() {
           <tbody>
             <tr>
               <td colSpan="2" className="toRight">
-                <CubeFace valores={cube[TOP]} />
+                <CubeFace values={cube[TOP]} />
               </td>
             </tr>
             <tr>
               <td>
-                <CubeFace valores={cube[LEFT]} />
+                <CubeFace values={cube[LEFT]} />
               </td><td>
-                <CubeFace valores={cube[FRONT]} />
+                <CubeFace values={cube[FRONT]} />
               </td>
               <td>
-                <CubeFace valores={cube[RIGHT]} />
+                <CubeFace values={cube[RIGHT]} />
               </td>
               <td>
-                <CubeFace valores={cube[BACK]} />
+                <CubeFace values={cube[BACK]} />
               </td>
             </tr>
             <tr>
               <td colSpan="2" className="toRight">
-                <CubeFace valores={cube[BOTTOM]} />
+                <CubeFace values={cube[BOTTOM]} />
               </td>
             </tr>
           </tbody>
@@ -59,20 +59,20 @@ function App() {
         <table className="buttonTable">
           <tbody>
             <tr>
-              <td><MoveButton valor="L" /></td>
-              <td><MoveButton valor="R" /></td>
-              <td><MoveButton valor="U" /></td>
-              <td><MoveButton valor="D" /></td>
-              <td><MoveButton valor="F" /></td>
-              <td><MoveButton valor="B" /></td>
+              <td><MoveButton value="L" /></td>
+              <td><MoveButton value="R" /></td>
+              <td><MoveButton value="U" /></td>
+              <td><MoveButton value="D" /></td>
+              <td><MoveButton value="F" /></td>
+              <td><MoveButton value="B" /></td>
             </tr>
             <tr>
-              <td><MoveButton valor="l" /></td>
-              <td><MoveButton valor="r" /></td>
-              <td><MoveButton valor="u" /></td>
-              <td><MoveButton valor="d" /></td>
-              <td><MoveButton valor="f" /></td>
-              <td><MoveButton valor="b" /></td>
+              <td><MoveButton value="l" /></td>
+              <td><MoveButton value="r" /></td>
+              <td><MoveButton value="u" /></td>
+              <td><MoveButton value="d" /></td>
+              <td><MoveButton value="f" /></td>
+              <td><MoveButton value="b" /></td>
             </tr>
           </tbody>
         </table>

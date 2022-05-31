@@ -2,25 +2,25 @@ import React from "react";
 import "./CubeFace.css";
 import SingleSquare from "../SingleSquare/SingleSquare.js";
 
-export default function CubeFace({ valores }) {
+export default function CubeFace({ values }) {
 
-  let linhas = [];
+  let rows = [];
 
   for (let i = 0; i < 3; i++) {
-    let elemLin = [];
+    let elemRow = [];
 
     for (let j = i * 3; j < (i * 3) + 3; j++) {
-      elemLin.push(<td key={j}><SingleSquare valor={valores[j]} key={j} /></td>);
+      elemRow.push(<td key={j}><SingleSquare value={values[j]} key={j} /></td>);
     }
 
-    linhas.push(<tr key={i}>{elemLin}</tr>);
+    rows.push(<tr key={i}>{elemRow}</tr>);
   }
 
   return (
     <div className="CubeFace">
       <table>
         <tbody>
-          {linhas}
+          {rows}
         </tbody>
       </table>
     </div>
