@@ -2,6 +2,7 @@ import React from 'react';
 import logo from "./logo.svg";
 import "./App.css";
 import CubeFace from "./components/CubeFace/CubeFace";
+import MoveButton from './components/MoveButton/MoveButton';
 
 function App() {
   const FRONT = 0;
@@ -52,6 +53,26 @@ function App() {
               <td colSpan="2" className="toRight">
                 <CubeFace valores={cube[BOTTOM]} />
               </td>
+            </tr>
+          </tbody>
+        </table>
+        <table className="buttonTable">
+          <tbody>
+            <tr>
+              <td><MoveButton valor="L" /></td>
+              <td><MoveButton valor="R" /></td>
+              <td><MoveButton valor="U" /></td>
+              <td><MoveButton valor="D" /></td>
+              <td><MoveButton valor="F" /></td>
+              <td><MoveButton valor="B" /></td>
+            </tr>
+            <tr>
+              <td><MoveButton valor="l" /></td>
+              <td><MoveButton valor="r" /></td>
+              <td><MoveButton valor="u" /></td>
+              <td><MoveButton valor="d" /></td>
+              <td><MoveButton valor="f" /></td>
+              <td><MoveButton valor="b" /></td>
             </tr>
           </tbody>
         </table>
