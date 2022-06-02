@@ -1,3 +1,5 @@
-td.toRight>div {
-    float: right;
+.cube-face {
+    border: 1px dashed red;
+    display: grid;
+    grid-template-columns: 1cm 1cm 1cm;
 }
