@@ -1,3 +1,4 @@
+import React from "react";
 import CubeFace from "../CubeFace/CubeFace";
 import "./OpenedCube.css"
 
