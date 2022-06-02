@@ -1,10 +1,9 @@
 .single-square {
   border: 1px solid white;  
-  width: 1cm;
-  height: 1cm;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0;
 }
 
 .color-0 {

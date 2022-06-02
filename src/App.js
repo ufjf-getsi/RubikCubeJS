@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import CubeFace from "./components/CubeFace/CubeFace";
 import MoveButton from './components/MoveButton/MoveButton';
+import OpenedCube from './components/OpenedCube/OpenedCube';
 
 // Constant
 const DI = 3; // cube dimensions
@@ -41,7 +42,7 @@ class App extends React.Component {
 
   renderCube(val) {
     return (
-      <CubeFace values={this.state.cube[val]} />
+      <CubeFace squares={this.state.cube[val]} />
     );
   }
 
@@ -55,33 +56,11 @@ class App extends React.Component {
     return (
       <div className="App" >
         <header className="App-header">
-          <table>
-            <tbody>
-              <tr>
-                <td colSpan="2" className="toRight">
-                  <CubeFace values={this.state.cube[TOP]} />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  {this.renderCube(LEFT)}
-                </td><td>
-                  {this.renderCube(FRONT)}
-                </td>
-                <td>
-                  {this.renderCube(RIGHT)}
-                </td>
-                <td>
-                  {this.renderCube(BACK)}
-                </td>
-              </tr>
-              <tr>
-                <td colSpan="2" className="toRight">
-                  {this.renderCube(BOTTOM)}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+          <OpenedCube cube={this.state.cube}/>
+
+          <hr />
+         
           <table className="buttonTable">
             <tbody>
               <tr>

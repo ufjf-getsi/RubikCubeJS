@@ -1,0 +1,12 @@
+.opened-cube {
+    aspect-ratio:4/3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    ". top . ."
+    "left front right back"
+    ". bottom . ."
+    ;
+}
