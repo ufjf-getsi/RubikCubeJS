@@ -31,16 +31,14 @@ export default function App() {
 
   return (
     <div className="App" >
-      <header className="App-header">
+        <h1>Rubik</h1>
 
         <OpenedCube cube={cube} />
 
-        <hr />
         <div className='buttons'>
           {elementButtons}
         </div>
 
-      </header>
     </div>
   );
 }
