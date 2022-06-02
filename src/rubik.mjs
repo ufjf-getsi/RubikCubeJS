@@ -1,10 +1,10 @@
-import { exit } from "process";
-import readLine from "readline";
+// import { exit } from "process";
+// import readLine from "readline";
 
-const leitor = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// const leitor = readLine.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+// });
 
 // Constants
 const DI = 3; // cube dimensions
@@ -25,29 +25,29 @@ const YELLOW = 5;
 
 let COLORS = ['G', 'O', 'R', 'B', 'W', 'Y'];
 
-async function main() {
+// async function main() {
 
-    let cube = [[[], [], []], [[], [], []], [[], [], []], [[], [], []], [[], [], []], [[], [], []]];
+//     let cube = [[[], [], []], [[], [], []], [[], [], []], [[], [], []], [[], [], []], [[], [], []]];
 
-    setFace(cube[FRONT], GREEN);
-    setFace(cube[LEFT], ORANGE);
-    setFace(cube[RIGHT], RED);
-    setFace(cube[BACK], BLUE);
-    setFace(cube[TOP], WHITE);
-    setFace(cube[BOTTOM], YELLOW);
+//     setFace(cube[FRONT], GREEN);
+//     setFace(cube[LEFT], ORANGE);
+//     setFace(cube[RIGHT], RED);
+//     setFace(cube[BACK], BLUE);
+//     setFace(cube[TOP], WHITE);
+//     setFace(cube[BOTTOM], YELLOW);
 
-    //console.table(cube[FRONT]);
-    showCube(cube);
-    process.stdout.write("Move: ");
-    for await (const line of leitor) {
-        doMove(line, cube);
-        showCube(cube);
-        process.stdout.write("Move: ");
-    }
-}
-main();
+//     //console.table(cube[FRONT]);
+//     showCube(cube);
+//     process.stdout.write("Move: ");
+//     for await (const line of leitor) {
+//         doMove(line, cube);
+//         showCube(cube);
+//         process.stdout.write("Move: ");
+//     }
+// }
+//main();
 
-function doMove(move, cube) {
+export function doMove(move, cube) {
     switch (move.charAt(0)) {
         case 'U': // U
             slideRow(0, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
@@ -110,7 +110,7 @@ function doMove(move, cube) {
             break;
 
         case '0': // Exit
-            exit();
+            // exit();
 
         default:
             break;
@@ -125,50 +125,50 @@ function setFace(face, value) {
     }
 }
 
-function showRow(row, face) {
-    for (let i = 0; i < DI; i++) {
-        process.stdout.write(COLORS[face[row][i]]);
-    }
-    process.stdout.write(" ");
-}
+// function showRow(row, face) {
+//     for (let i = 0; i < DI; i++) {
+//         process.stdout.write(COLORS[face[row][i]]);
+//     }
+//     process.stdout.write(" ");
+// }
 
-function showRowInverted(row, face) {
-    for (let i = DI - 1; i >= 0; i--) {
-        process.stdout.write(COLORS[face[row][i]]);
-    }
-    process.stdout.write(" ");
+// function showRowInverted(row, face) {
+//     for (let i = DI - 1; i >= 0; i--) {
+//         process.stdout.write(COLORS[face[row][i]]);
+//     }
+//     process.stdout.write(" ");
 
-}
+// }
 
-function showBlankRow() {
-    for (let i = 0; i <= DI; i++) {
-        process.stdout.write(" ");
-    }
-}
+// function showBlankRow() {
+//     for (let i = 0; i <= DI; i++) {
+//         process.stdout.write(" ");
+//     }
+// }
 
-function showCube(cube) {
-    console.log("=== CUBE ===");
-    // upper section
-    for (let i = 0; i < DI; i++) {
-        showBlankRow();
-        showRow(i, cube[TOP]);
-        console.log();
-    }
-    // middle section
-    for (let i = 0; i < DI; i++) {
-        showRow(i, cube[LEFT]);
-        showRow(i, cube[FRONT]);
-        showRow(i, cube[RIGHT]);
-        showRowInverted(i, cube[BACK]);
-        console.log();
-    }
-    // lower section
-    for (let i = 0; i < DI; i++) {
-        showBlankRow();
-        showRow(i, cube[BOTTOM]);
-        console.log();
-    }
-}
+// function showCube(cube) {
+//     console.log("=== CUBE ===");
+//     // upper section
+//     for (let i = 0; i < DI; i++) {
+//         showBlankRow();
+//         showRow(i, cube[TOP]);
+//         console.log();
+//     }
+//     // middle section
+//     for (let i = 0; i < DI; i++) {
+//         showRow(i, cube[LEFT]);
+//         showRow(i, cube[FRONT]);
+//         showRow(i, cube[RIGHT]);
+//         showRowInverted(i, cube[BACK]);
+//         console.log();
+//     }
+//     // lower section
+//     for (let i = 0; i < DI; i++) {
+//         showBlankRow();
+//         showRow(i, cube[BOTTOM]);
+//         console.log();
+//     }
+// }
 
 function slideRow(row, face1, face2, face3, face4) {
     let newRow2 = [];
