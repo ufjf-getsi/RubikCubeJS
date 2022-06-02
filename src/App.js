@@ -21,7 +21,7 @@ export default function App() {
     doMove(move, cube);
     setCube([...cube]);
   }
-  const comandos = ['l','L','r','R','u','U','d','D','f','F','b','B'];
+  const comandos = ['L','R','U','D','F','B','l','r','u','d','f','b'];
   const elementButtons = [];
   for (let b = 0; b < comandos.length; b++) {
     elementButtons.push(
