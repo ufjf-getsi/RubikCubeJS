@@ -1,5 +1,5 @@
-.SingleSquare {
-  border: 1px solid white;
+.single-square {
+  border: 1px solid white;  
   width: 1cm;
   height: 1cm;
   display: flex;
@@ -7,32 +7,32 @@
   justify-content: center;
 }
 
-.color_0 {
+.color-0 {
   background-color: #2ECC71;
   border-color: #28B463;
 }
 
-.color_1 {
+.color-1 {
   background-color: #E67E22;
   border-color: #CA6F1E;
 }
 
-.color_2 {
+.color-2 {
   background-color: #C0392B;
   border-color: #A93226;
 }
 
-.color_3 {
+.color-3 {
   background-color: #3498DB;
   border-color: #2E86C1;
 }
 
-.color_4 {
+.color-4 {
   background-color: #ECF0F1;
   border-color: #D0D3D4;
 }
 
-.color_5 {
+.color-5 {
   background-color: #F1C40F;
   border-color: #D4AC0D;
 }
