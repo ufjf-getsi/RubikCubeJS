@@ -52,3 +52,10 @@ button.move-button:active {
   border-color: #7B7D7D;
   background-color: #979A9A;
 }
+
+@media screen and (max-width: 575.98px) {
+  .App {
+    max-height: 100vh;
+    aspect-ratio: 9/16;
+  }
+}
