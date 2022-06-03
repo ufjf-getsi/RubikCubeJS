@@ -37,3 +37,12 @@
   background-color: #F1C40F;
   border-color: #D4AC0D;
 }
+
+/* Renders Back face in opposite way */
+.face-3>.single-square:nth-child(3n + 1) {
+  grid-column: 3;
+}
+
+.face-3>.single-square:nth-child(3n + 2) {
+  grid-column: 2;
+}

@@ -18,6 +18,10 @@
 
 .face-3 {
     grid-area: back;
+    aspect-ratio: 3/3;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: dense;
 }
 
 .face-4 {
