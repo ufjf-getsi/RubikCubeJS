@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "4753f59666bb41ad6668",
-    "url": "/RubikCubeJS/static/css/main.dea286ea.chunk.css"
+    "revision": "5bd234adb53f73a86ab9",
+    "url": "/RubikCubeJS/static/css/main.b7abf501.chunk.css"
   },
   {
-    "revision": "4753f59666bb41ad6668",
-    "url": "/RubikCubeJS/static/js/main.4753f596.chunk.js"
+    "revision": "5bd234adb53f73a86ab9",
+    "url": "/RubikCubeJS/static/js/main.5bd234ad.chunk.js"
   },
   {
     "revision": "9863931913954e89bf2e",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/RubikCubeJS/static/js/runtime~main.7dd37095.js"
   },
   {
-    "revision": "d5b0d59c14d86bb5f99154d36ccea59d",
+    "revision": "1ca640c3380b9bb35a780abe4536307f",
     "url": "/RubikCubeJS/index.html"
   }
 ];
