@@ -20,7 +20,7 @@ export default function App() {
       character += "'";
     }
     elementButtons.push(
-      <button className="move-button" key={b} onClick={function click() { doCubeMove(character); }}>{character}</button>
+      <button className="move-button" key={b} onClick={function click() { doCubeMove(commands[b]); }}>{character}</button>
     );
   }
 
