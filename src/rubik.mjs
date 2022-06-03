@@ -16,6 +16,7 @@ const BACK = 3;
 const TOP = 4;
 const BOTTOM = 5;
 
+/*
 const GREEN = 0;
 const ORANGE = 1;
 const RED = 2;
@@ -24,6 +25,7 @@ const WHITE = 4;
 const YELLOW = 5;
 
 let COLORS = ['G', 'O', 'R', 'B', 'W', 'Y'];
+*/
 
 // async function main() {
 
@@ -111,12 +113,14 @@ export function doMove(move, cube) {
 
         case '0': // Exit
             // exit();
+            break;
 
         default:
             break;
     }
 }
 
+/*
 function setFace(face, value) {
     for (let l = 0; l < DI; l++) {
         for (let c = 0; c < DI; c++) {
@@ -124,6 +128,7 @@ function setFace(face, value) {
         }
     }
 }
+*/
 
 // function showRow(row, face) {
 //     for (let i = 0; i < DI; i++) {

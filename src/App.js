@@ -3,16 +3,6 @@ import "./App.css";
 import OpenedCube from './components/OpenedCube/OpenedCube';
 import { doMove } from './rubik.mjs';
 
-// Constant
-const DI = 3; // cube dimensions
-const FRONT = 0;
-const LEFT = 1;
-const RIGHT = 2;
-const BACK = 3;
-const TOP = 4;
-const BOTTOM = 5;
-
-
 export default function App() {
   //const cube =  setCubeInitialValues();
   const [cube, setCube] = useState(setCubeInitialValues());
