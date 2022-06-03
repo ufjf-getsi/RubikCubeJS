@@ -1,23 +1,29 @@
 .cube-face {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4px;
 }
 
 .face-0 {
-    grid-area:front;
+    grid-area: front;
 }
+
 .face-1 {
-    grid-area:left;
+    grid-area: left;
 }
+
 .face-2 {
-    grid-area:right;
+    grid-area: right;
 }
+
 .face-3 {
-    grid-area:back;
+    grid-area: back;
 }
+
 .face-4 {
-    grid-area:top;
+    grid-area: top;
 }
+
 .face-5 {
-    grid-area:bottom;
+    grid-area: bottom;
 }

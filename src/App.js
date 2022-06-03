@@ -16,28 +16,33 @@ const BOTTOM = 5;
 export default function App() {
   //const cube =  setCubeInitialValues();
   const [cube, setCube] = useState(setCubeInitialValues());
-  
-  function doCubeMove(move){
+
+  function doCubeMove(move) {
     doMove(move, cube);
     setCube([...cube]);
   }
-  const comandos = ['L','R','U','D','F','B','l','r','u','d','f','b'];
+  const commands = ['L', 'R', 'U', 'D', 'F', 'B', 'l', 'r', 'u', 'd', 'f', 'b'];
   const elementButtons = [];
-  for (let b = 0; b < comandos.length; b++) {
+  for (let b = 0; b < commands.length; b++) {
+    let character = commands[b];
+    if (character === character.toLowerCase()) {
+      character = character.toUpperCase();
+      character += "'";
+    }
     elementButtons.push(
-      <button onClick={function click() { doCubeMove(comandos[b]); }}>{comandos[b]}</button>
-    );    
+      <button className="move-button" onClick={function click() { doCubeMove(character); }}>{character}</button>
+    );
   }
 
   return (
     <div className="App" >
-        <h1>Rubik</h1>
+      <h1 className="title">Rubik's Cube</h1>
 
-        <OpenedCube cube={cube} />
+      <OpenedCube cube={cube} />
 
-        <div className='buttons'>
-          {elementButtons}
-        </div>
+      <div className='buttons'>
+        {elementButtons}
+      </div>
 
     </div>
   );
