@@ -46,3 +46,23 @@
 .face-3>.single-square:nth-child(3n + 2) {
   grid-column: 2;
 }
+
+@media screen and (max-width: 575.98px) {
+
+  /* Renders Back face columms in direct way */
+  .face-3>.single-square:nth-child(3n + 1) {
+    grid-column: 1;
+  }
+
+  .face-3>.single-square:nth-child(3n + 2) {
+    grid-column: 3;
+  }
+
+  .face-3>.single-square:nth-child(-n+3) {
+    grid-row: 3;
+  }
+
+  .face-3>.single-square:nth-last-child(-n+3) {
+    grid-row: 1;
+  }
+}
