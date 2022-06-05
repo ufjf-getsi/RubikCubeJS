@@ -1,48 +1,26 @@
-import React, { useState } from 'react';
-import "./App.css";
-import OpenedCube from './components/OpenedCube/OpenedCube';
-import { doMove } from './rubik.mjs';
+import React, { useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+
+function Box() {
+  const mesh = useRef()
+  useFrame(() => {
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.01
+  })
+  return (
+    <mesh ref={mesh}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial />
+    </mesh>
+  )
+}
 
 export default function App() {
-  //const cube =  setCubeInitialValues();
-  const [cube, setCube] = useState(setCubeInitialValues());
-
-  function doCubeMove(move) {
-    doMove(move, cube);
-    setCube([...cube]);
-  }
-  const commands = ['L', 'R', 'U', 'D', 'F', 'B', 'l', 'r', 'u', 'd', 'f', 'b'];
-  const elementButtons = [];
-  for (let b = 0; b < commands.length; b++) {
-    let character = commands[b];
-    if (character === character.toLowerCase()) {
-      character = character.toUpperCase();
-      character += "'";
-    }
-    elementButtons.push(
-      <button className="move-button" key={b} onClick={function click() { doCubeMove(commands[b]); }}>{character}</button>
-    );
-  }
-
   return (
-    <div className="App" >
-      <h1 className="title">Rubik's Cube</h1>
-
-      <OpenedCube cube={cube} />
-
-      <div className='buttons'>
-        {elementButtons}
-      </div>
-
-    </div>
-  );
+    <Canvas>
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <pointLight position={[-10, -10, -10]} />
+      <Box />
+    </Canvas>
+  )
 }
-
-function setCubeInitialValues() {
-  let cube = [];
-  for (let i = 0; i < 6; i++) {
-    cube.push([[i, i, i], [i, i, i], [i, i, i]]);
-  }
-  return cube;
-}
-
