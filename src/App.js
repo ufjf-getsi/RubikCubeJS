@@ -39,7 +39,7 @@ export default function App() {
   return (
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
-      <Canvas colorManagement>
+      <Canvas colormanagement>
         <OrbitControls />
         <ambientLight intensity={0.2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
