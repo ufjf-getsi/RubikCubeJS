@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import OpenedCube from "./components/OpenedCube/OpenedCube";
 import SingleCube from "./components/SingleCube/SingleCube";
 import { doMove } from "./rubik.mjs";
+import { OrbitControls } from "@react-three/drei";
 import "./App.css";
 
 
@@ -39,6 +40,7 @@ export default function App() {
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
       <Canvas colorManagement>
+        <OrbitControls />
         <ambientLight intensity={0.2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />

@@ -4,6 +4,7 @@
   "homepage": "https://ufjf-getsi.github.io/RubikCubeJS/",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^9.11.3",
     "@react-three/fiber": "^8.0.22",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",

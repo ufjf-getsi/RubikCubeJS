@@ -1,13 +1,11 @@
 import React, { useRef } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
 
 
 export default function SingleCube() {
   const mesh = useRef();
-  useFrame(() => {
-    mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
-  });
+
   const texture_1 = useLoader(TextureLoader, "textures/dice_1.jpg");
   const texture_2 = useLoader(TextureLoader, "textures/dice_2.jpg");
   const texture_3 = useLoader(TextureLoader, "textures/dice_3.jpg");
