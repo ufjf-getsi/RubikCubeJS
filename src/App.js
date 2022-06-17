@@ -1,11 +1,8 @@
-import React, { useState, Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useState } from "react";
+import { doMove } from "./rubik.mjs";
 import OpenedCube from "./components/OpenedCube/OpenedCube";
 import SingleCube from "./components/SingleCube/SingleCube";
-import { doMove } from "./rubik.mjs";
-import { OrbitControls } from "@react-three/drei";
 import "./App.css";
-
 
 export default function App() {
   //const cube =  setCubeInitialValues();
@@ -39,15 +36,10 @@ export default function App() {
   return (
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
-      <Canvas colormanagement>
-        <OrbitControls />
-        <ambientLight intensity={0.2} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Suspense fallback={null}>
+
           <SingleCube />
-        </Suspense>
-      </Canvas>
+          <SingleCube />
+          <SingleCube />
 
       <OpenedCube cube={cube} />
 
