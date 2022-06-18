@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { doMove } from "./rubik.mjs";
 import OpenedCube from "./components/OpenedCube/OpenedCube";
 import SingleCube from "./components/SingleCube/SingleCube";
@@ -36,11 +38,69 @@ export default function App() {
   return (
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
+      <Canvas colormanagement>
+        <OrbitControls />
+        <gridHelper />
+        <ambientLight intensity={0.2} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+        <pointLight position={[-10, -10, -10]} />
+        <Suspense fallback={null}>
 
-          <SingleCube position={[0, 0, 0]}/>
-          <SingleCube position={[2, 0, 5]}/>
-          <SingleCube position={[-3, 2, 0]}/>
+          <SingleCube position={[-1, -1, -1]} />
+          <SingleCube position={[-1, -1, 0]} />
+          <SingleCube position={[-1, -1, 1]} />
 
+          <SingleCube position={[-1, 0, -1]} />
+          <SingleCube position={[-1, 1, -1]} />
+
+          <SingleCube position={[0, -1, -1]} />
+          <SingleCube position={[1, -1, -1]} />
+
+          <SingleCube position={[0, 0, -1]} />
+          <SingleCube position={[0, 0, 0]} />
+          <SingleCube position={[0, 0, 1]} />
+
+          <SingleCube position={[0, -1, 0]} />
+          <SingleCube position={[0, 1, 0]} />
+
+          <SingleCube position={[-1, 0, 0]} />
+          <SingleCube position={[1, 0, 0]} />
+
+          <SingleCube position={[1, 1, -1]} />
+          <SingleCube position={[1, 1, 0]} />
+          <SingleCube position={[1, 1, 1]} />
+
+          <SingleCube position={[1, -1, 1]} />
+          <SingleCube position={[1, 0, 1]} />
+
+          <SingleCube position={[-1, 1, 1]} />
+          <SingleCube position={[0, 1, 1]} />
+          
+          <SingleCube position={[1, -1, -1]} />
+          <SingleCube position={[1, -1, 0]} />
+
+          <SingleCube position={[1, 0, -1]} />
+          <SingleCube position={[0, 1, -1]} />
+
+          <SingleCube position={[-1, 1, 0]} />
+          <SingleCube position={[0, -1, 1]} />
+          <SingleCube position={[-1, 0, 1]} />
+
+          
+         
+         
+          
+
+          
+          
+          
+          
+          
+          
+          
+
+        </Suspense>
+      </Canvas>
       <OpenedCube cube={cube} />
 
       <div className="buttons">{elementButtons}</div>
