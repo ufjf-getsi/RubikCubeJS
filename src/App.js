@@ -37,9 +37,9 @@ export default function App() {
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
 
-          <SingleCube />
-          <SingleCube />
-          <SingleCube />
+          <SingleCube position={[0, 0, 0]}/>
+          <SingleCube position={[2, 0, 5]}/>
+          <SingleCube position={[-3, 2, 0]}/>
 
       <OpenedCube cube={cube} />
 
