@@ -45,7 +45,6 @@ export default function App() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Suspense fallback={null}>
-
           <SingleCube position={[-1, -1, -1]} />
           <SingleCube position={[-1, -1, 0]} />
           <SingleCube position={[-1, -1, 1]} />
@@ -75,7 +74,7 @@ export default function App() {
 
           <SingleCube position={[-1, 1, 1]} />
           <SingleCube position={[0, 1, 1]} />
-          
+
           <SingleCube position={[1, -1, -1]} />
           <SingleCube position={[1, -1, 0]} />
 
@@ -85,20 +84,6 @@ export default function App() {
           <SingleCube position={[-1, 1, 0]} />
           <SingleCube position={[0, -1, 1]} />
           <SingleCube position={[-1, 0, 1]} />
-
-          
-         
-         
-          
-
-          
-          
-          
-          
-          
-          
-          
-
         </Suspense>
       </Canvas>
       <OpenedCube cube={cube} />
