@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { doMove } from "./rubik.mjs";
 import OpenedCube from "./components/OpenedCube/OpenedCube";
-import SingleCube from "./components/SingleCube/SingleCube";
+import LargeCube from "./components/LargeCube/LargeCube.js";
 import "./App.css";
 
 export default function App() {
@@ -45,45 +45,7 @@ export default function App() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Suspense fallback={null}>
-          <SingleCube position={[-1, -1, -1]} />
-          <SingleCube position={[-1, -1, 0]} />
-          <SingleCube position={[-1, -1, 1]} />
-
-          <SingleCube position={[-1, 0, -1]} />
-          <SingleCube position={[-1, 1, -1]} />
-
-          <SingleCube position={[0, -1, -1]} />
-          <SingleCube position={[1, -1, -1]} />
-
-          <SingleCube position={[0, 0, -1]} />
-          <SingleCube position={[0, 0, 0]} />
-          <SingleCube position={[0, 0, 1]} />
-
-          <SingleCube position={[0, -1, 0]} />
-          <SingleCube position={[0, 1, 0]} />
-
-          <SingleCube position={[-1, 0, 0]} />
-          <SingleCube position={[1, 0, 0]} />
-
-          <SingleCube position={[1, 1, -1]} />
-          <SingleCube position={[1, 1, 0]} />
-          <SingleCube position={[1, 1, 1]} />
-
-          <SingleCube position={[1, -1, 1]} />
-          <SingleCube position={[1, 0, 1]} />
-
-          <SingleCube position={[-1, 1, 1]} />
-          <SingleCube position={[0, 1, 1]} />
-
-          <SingleCube position={[1, -1, -1]} />
-          <SingleCube position={[1, -1, 0]} />
-
-          <SingleCube position={[1, 0, -1]} />
-          <SingleCube position={[0, 1, -1]} />
-
-          <SingleCube position={[-1, 1, 0]} />
-          <SingleCube position={[0, -1, 1]} />
-          <SingleCube position={[-1, 0, 1]} />
+          <LargeCube />
         </Suspense>
       </Canvas>
       <OpenedCube cube={cube} />
