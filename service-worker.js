@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/RubikCubeJS/precache-manifest.dae874d97722b6994236ef0089fb5576.js"
+  "/RubikCubeJS/precache-manifest.5dca57996f02ad8ddbdffe7215556313.js"
 );
 
 workbox.clientsClaim();
