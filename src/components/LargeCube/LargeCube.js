@@ -23,22 +23,21 @@ function searchColor(value) {
   switch (value) {
     case 0:
       return "#2ECC71";
-      
+
     case 1:
       return "#E67E22";
-      
+
     case 2:
       return "#C0392B";
-      
+
     case 3:
       return "#3498DB";
-      
+
     case 4:
       return "#ECF0F1";
-      
+
     case 5:
       return "#F1C40F";
-      
 
     default:
       break;
@@ -192,7 +191,7 @@ export default function LargeCube({ cube }) {
       searchColor(cube[TOP][0][0]),
       "#ffffff",
       "#ffffff",
-      searchColor(cube[BACK][0][2]),
+      searchColor(cube[BACK][0][0]),
     ],
     [
       "#ffffff",
@@ -208,7 +207,7 @@ export default function LargeCube({ cube }) {
       searchColor(cube[TOP][0][2]),
       "#ffffff",
       "#ffffff",
-      searchColor(cube[BACK][0][0]),
+      searchColor(cube[BACK][0][2]),
     ],
     [
       "#ffffff",
@@ -240,7 +239,7 @@ export default function LargeCube({ cube }) {
       "#ffffff",
       searchColor(cube[BOTTOM][2][0]),
       "#ffffff",
-      searchColor(cube[BACK][2][2]),
+      searchColor(cube[BACK][2][0]),
     ],
     [
       "#ffffff",
