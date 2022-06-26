@@ -45,7 +45,7 @@ export default function App() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Suspense fallback={null}>
-          <LargeCube />
+          <LargeCube cube={cube}/>
         </Suspense>
       </Canvas>
       <OpenedCube cube={cube} />
