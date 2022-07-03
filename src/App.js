@@ -40,12 +40,12 @@ export default function App() {
       <h1 className="title">Rubik's Cube</h1>
       <Canvas colormanagement>
         <OrbitControls />
-        <Stars fade depth={1.2}/>
+        <Stars fade depth={1.2} />
         <ambientLight intensity={0.2} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <Suspense fallback={null}>
-          <LargeCube cube={cube}/>
+          <LargeCube cube={cube} />
         </Suspense>
       </Canvas>
       <OpenedCube cube={cube} />

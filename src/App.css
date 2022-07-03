@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  font-size: calc(0.500em + 2vmin);
+  font-size: larger;
   color: white;
 }
 
@@ -22,14 +22,16 @@
 }
 
 .buttons {
+  position: relative;
+  margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 0.2em;
 }
 
 button.move-button {
-  border: 2px outset #D0D3D4;
-  background-color: #F0F3F4;
+  border: 2px outset #d0d3d4;
+  background-color: #f0f3f4;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,18 +41,18 @@ button.move-button {
 }
 
 button.move-button:hover {
-  border-color: #B3B6B7;
-  background-color: #D0D3D4;
+  border-color: #b3b6b7;
+  background-color: #d0d3d4;
 }
 
 button.move-button:focus {
-  border-color: #979A9A;
-  background-color: #B3B6B7;
+  border-color: #979a9a;
+  background-color: #b3b6b7;
 }
 
 button.move-button:active {
-  border-color: #7B7D7D;
-  background-color: #979A9A;
+  border-color: #7b7d7d;
+  background-color: #979a9a;
 }
 
 @media screen and (max-width: 575.98px) {

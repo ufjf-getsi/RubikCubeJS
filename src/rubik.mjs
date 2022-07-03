@@ -50,74 +50,74 @@ let COLORS = ['G', 'O', 'R', 'B', 'W', 'Y'];
 //main();
 
 export function doMove(move, cube) {
-    switch (move.charAt(0)) {
-        case 'U': // U
-            slideRow(0, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
-            rotateFaceClockwise(cube[TOP]);
-            break;
+  switch (move.charAt(0)) {
+    case "U": // U
+      slideRow(0, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
+      rotateFaceClockwise(cube[TOP]);
+      break;
 
-        case 'u': // U'
-            slideRowInverted(0, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
-            rotateFaceCounterClockwise(cube[TOP]);
-            break;
+    case "u": // U'
+      slideRowInverted(0, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
+      rotateFaceCounterClockwise(cube[TOP]);
+      break;
 
-        case 'D': // D
-            slideRowInverted(2, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
-            rotateFaceClockwise(cube[BOTTOM]);
-            break;
+    case "D": // D
+      slideRowInverted(2, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
+      rotateFaceClockwise(cube[BOTTOM]);
+      break;
 
-        case 'd': // D'
-            slideRow(2, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
-            rotateFaceCounterClockwise(cube[BOTTOM]);
-            break;
+    case "d": // D'
+      slideRow(2, cube[FRONT], cube[LEFT], cube[BACK], cube[RIGHT]);
+      rotateFaceCounterClockwise(cube[BOTTOM]);
+      break;
 
-        case 'L': // L
-            slideColInverted(0, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
-            rotateFaceClockwise(cube[LEFT]);
-            break;
+    case "L": // L
+      slideColInverted(0, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
+      rotateFaceClockwise(cube[LEFT]);
+      break;
 
-        case 'l': // L'
-            slideCol(0, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
-            rotateFaceCounterClockwise(cube[LEFT]);
-            break;
+    case "l": // L'
+      slideCol(0, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
+      rotateFaceCounterClockwise(cube[LEFT]);
+      break;
 
-        case 'R': // R
-            slideCol(2, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
-            rotateFaceClockwise(cube[RIGHT]);
-            break;
+    case "R": // R
+      slideCol(2, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
+      rotateFaceClockwise(cube[RIGHT]);
+      break;
 
-        case 'r': // R'
-            slideColInverted(2, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
-            rotateFaceCounterClockwise(cube[RIGHT]);
-            break;
+    case "r": // R'
+      slideColInverted(2, cube[FRONT], cube[TOP], cube[BACK], cube[BOTTOM]);
+      rotateFaceCounterClockwise(cube[RIGHT]);
+      break;
 
-        case 'F': // F
-            rotateFaceClockwise(cube[FRONT]);
-            slideSideColInverted(0, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
-            break;
+    case "F": // F
+      rotateFaceClockwise(cube[FRONT]);
+      slideSideColInverted(0, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
+      break;
 
-        case 'f': // F'
-            rotateFaceCounterClockwise(cube[FRONT]);
-            slideSideCol(0, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
-            break;
+    case "f": // F'
+      rotateFaceCounterClockwise(cube[FRONT]);
+      slideSideCol(0, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
+      break;
 
-        case 'B': // B
-            rotateFaceCounterClockwise(cube[BACK]);
-            slideSideCol(2, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
-            break;
+    case "B": // B
+      rotateFaceCounterClockwise(cube[BACK]);
+      slideSideCol(2, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
+      break;
 
-        case 'b': // B'
-            rotateFaceClockwise(cube[BACK]);
-            slideSideColInverted(2, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
-            break;
+    case "b": // B'
+      rotateFaceClockwise(cube[BACK]);
+      slideSideColInverted(2, cube[RIGHT], cube[TOP], cube[LEFT], cube[BOTTOM]);
+      break;
 
-        case '0': // Exit
-            // exit();
-            break;
+    case "0": // Exit
+      // exit();
+      break;
 
-        default:
-            break;
-    }
+    default:
+      break;
+  }
 }
 
 /*
@@ -176,135 +176,135 @@ function setFace(face, value) {
 // }
 
 function slideRow(row, face1, face2, face3, face4) {
-    let newRow2 = [];
-    let newRow3 = [];
-    for (let c = 0; c < DI; c++) {
-        newRow2[c] = face1[row][c];
-    }
-    for (let c = 0; c < DI; c++) {
-        face1[row][c] = face4[row][c];
-        face4[row][c] = face3[row][DI - 1 - c];
-        newRow3[c] = face2[row][DI - 1 - c];
-    }
-    for (let c = 0; c < DI; c++) {
-        face2[row][c] = newRow2[c];
-        face3[row][c] = newRow3[c];
-    }
+  let newRow2 = [];
+  let newRow3 = [];
+  for (let c = 0; c < DI; c++) {
+    newRow2[c] = face1[row][c];
+  }
+  for (let c = 0; c < DI; c++) {
+    face1[row][c] = face4[row][c];
+    face4[row][c] = face3[row][DI - 1 - c];
+    newRow3[c] = face2[row][DI - 1 - c];
+  }
+  for (let c = 0; c < DI; c++) {
+    face2[row][c] = newRow2[c];
+    face3[row][c] = newRow3[c];
+  }
 }
 
 function slideRowInverted(row, face1, face2, face3, face4) {
-    let newRow4 = [];
-    let newRow3 = [];
-    for (let c = 0; c < DI; c++) {
-        newRow4[c] = face1[row][c];
-    }
-    for (let c = 0; c < DI; c++) {
-        face1[row][c] = face2[row][c];
-        face2[row][c] = face3[row][DI - 1 - c];
-        newRow3[c] = face4[row][DI - 1 - c];
-    }
-    for (let c = 0; c < DI; c++) {
-        face4[row][c] = newRow4[c];
-        face3[row][c] = newRow3[c];
-    }
+  let newRow4 = [];
+  let newRow3 = [];
+  for (let c = 0; c < DI; c++) {
+    newRow4[c] = face1[row][c];
+  }
+  for (let c = 0; c < DI; c++) {
+    face1[row][c] = face2[row][c];
+    face2[row][c] = face3[row][DI - 1 - c];
+    newRow3[c] = face4[row][DI - 1 - c];
+  }
+  for (let c = 0; c < DI; c++) {
+    face4[row][c] = newRow4[c];
+    face3[row][c] = newRow3[c];
+  }
 }
 
 function slideCol(col, face1, face2, face3, face4) {
-    let newCol2 = [];
-    let newCol3 = [];
-    for (let r = 0; r < DI; r++) {
-        newCol2[r] = face1[r][col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face1[r][col] = face4[r][col];
-        face4[r][col] = face3[DI - 1 - r][col];
-        newCol3[r] = face2[DI - 1 - r][col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face2[r][col] = newCol2[r];
-        face3[r][col] = newCol3[r];
-    }
+  let newCol2 = [];
+  let newCol3 = [];
+  for (let r = 0; r < DI; r++) {
+    newCol2[r] = face1[r][col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face1[r][col] = face4[r][col];
+    face4[r][col] = face3[DI - 1 - r][col];
+    newCol3[r] = face2[DI - 1 - r][col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face2[r][col] = newCol2[r];
+    face3[r][col] = newCol3[r];
+  }
 }
 
 function slideColInverted(col, face1, face2, face3, face4) {
-    let newCol4 = [];
-    let newCol3 = [];
-    for (let r = 0; r < DI; r++) {
-        newCol4[r] = face1[r][col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face1[r][col] = face2[r][col];
-        face2[r][col] = face3[DI - 1 - r][col];
-        newCol3[r] = face4[DI - 1 - r][col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face4[r][col] = newCol4[r];
-        face3[r][col] = newCol3[r];
-    }
+  let newCol4 = [];
+  let newCol3 = [];
+  for (let r = 0; r < DI; r++) {
+    newCol4[r] = face1[r][col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face1[r][col] = face2[r][col];
+    face2[r][col] = face3[DI - 1 - r][col];
+    newCol3[r] = face4[DI - 1 - r][col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face4[r][col] = newCol4[r];
+    face3[r][col] = newCol3[r];
+  }
 }
 
 function slideSideCol(col, face1, face2, face3, face4) {
-    let newCol1 = [];
-    let newCol2 = [];
-    let newCol3 = [];
-    let newCol4 = [];
-    for (let r = 0; r < DI; r++) {
-        newCol1[r] = face4[col][DI - 1 - r];
-        newCol2[r] = face1[r][col];
-        newCol3[r] = face2[DI - 1 - col][DI - 1 - r];
-        newCol4[r] = face3[r][DI - 1 - col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face1[r][col] = newCol1[r];
-        face2[DI - 1 - col][r] = newCol2[r];
-        face3[r][DI - 1 - col] = newCol3[r];
-        face4[col][r] = newCol4[r];
-    }
+  let newCol1 = [];
+  let newCol2 = [];
+  let newCol3 = [];
+  let newCol4 = [];
+  for (let r = 0; r < DI; r++) {
+    newCol1[r] = face4[col][DI - 1 - r];
+    newCol2[r] = face1[r][col];
+    newCol3[r] = face2[DI - 1 - col][DI - 1 - r];
+    newCol4[r] = face3[r][DI - 1 - col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face1[r][col] = newCol1[r];
+    face2[DI - 1 - col][r] = newCol2[r];
+    face3[r][DI - 1 - col] = newCol3[r];
+    face4[col][r] = newCol4[r];
+  }
 }
 
 function slideSideColInverted(col, face1, face2, face3, face4) {
-    let newCol1 = [];
-    let newCol2 = [];
-    let newCol3 = [];
-    let newCol4 = [];
-    for (let r = 0; r < DI; r++) {
-        newCol1[r] = face2[DI - 1 - col][r];
-        newCol2[r] = face3[DI - 1 - r][DI - 1 - col];
-        newCol3[r] = face4[col][r];
-        newCol4[r] = face1[DI - 1 - r][col];
-    }
-    for (let r = 0; r < DI; r++) {
-        face1[r][col] = newCol1[r];
-        face2[DI - 1 - col][r] = newCol2[r];
-        face3[r][DI - 1 - col] = newCol3[r];
-        face4[col][r] = newCol4[r];
-    }
+  let newCol1 = [];
+  let newCol2 = [];
+  let newCol3 = [];
+  let newCol4 = [];
+  for (let r = 0; r < DI; r++) {
+    newCol1[r] = face2[DI - 1 - col][r];
+    newCol2[r] = face3[DI - 1 - r][DI - 1 - col];
+    newCol3[r] = face4[col][r];
+    newCol4[r] = face1[DI - 1 - r][col];
+  }
+  for (let r = 0; r < DI; r++) {
+    face1[r][col] = newCol1[r];
+    face2[DI - 1 - col][r] = newCol2[r];
+    face3[r][DI - 1 - col] = newCol3[r];
+    face4[col][r] = newCol4[r];
+  }
 }
 
 function rotateFaceClockwise(face) {
-    let newFace = [[], [], []];
-    for (let r = 0; r < DI; r++) {
-        for (let c = 0; c < DI; c++) {
-            newFace[r][c] = face[DI - 1 - c][r];
-        }
+  let newFace = [[], [], []];
+  for (let r = 0; r < DI; r++) {
+    for (let c = 0; c < DI; c++) {
+      newFace[r][c] = face[DI - 1 - c][r];
     }
-    for (let r = 0; r < DI; r++) {
-        for (let c = 0; c < DI; c++) {
-            face[r][c] = newFace[r][c];
-        }
+  }
+  for (let r = 0; r < DI; r++) {
+    for (let c = 0; c < DI; c++) {
+      face[r][c] = newFace[r][c];
     }
+  }
 }
 
 function rotateFaceCounterClockwise(face) {
-    let newFace = [[], [], []];
-    for (let r = 0; r < DI; r++) {
-        for (let c = 0; c < DI; c++) {
-            newFace[r][c] = face[c][DI - 1 - r];
-        }
+  let newFace = [[], [], []];
+  for (let r = 0; r < DI; r++) {
+    for (let c = 0; c < DI; c++) {
+      newFace[r][c] = face[c][DI - 1 - r];
     }
-    for (let r = 0; r < DI; r++) {
-        for (let c = 0; c < DI; c++) {
-            face[r][c] = newFace[r][c];
-        }
+  }
+  for (let r = 0; r < DI; r++) {
+    for (let c = 0; c < DI; c++) {
+      face[r][c] = newFace[r][c];
     }
+  }
 }
