@@ -16,6 +16,17 @@ export default function App() {
   }
   const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
   const elementButtons = [];
+  elementButtons.push(
+    <button
+      className="reset-button"
+      key={100}
+      onClick={function click() {
+        setCube([...setCubeInitialValues()]);
+      }}
+    >
+      {"Reset"}
+    </button>
+  );
   for (let b = 0; b < commands.length; b++) {
     let character = commands[b];
     if (character === character.toLowerCase()) {
