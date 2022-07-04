@@ -14,12 +14,9 @@ export default function App() {
     doMove(move, cube);
     setCube([...cube]);
   }
-  const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
-  const elementButtons = [];
-  elementButtons.push(
+  const reset = (
     <button
       className="reset-button"
-      key={100}
       onClick={function click() {
         setCube([...setCubeInitialValues()]);
       }}
@@ -27,6 +24,8 @@ export default function App() {
       {"Reset"}
     </button>
   );
+  const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
+  const elementButtons = [];
   for (let b = 0; b < commands.length; b++) {
     let character = commands[b];
     if (character === character.toLowerCase()) {
@@ -45,6 +44,7 @@ export default function App() {
       </button>
     );
   }
+  elementButtons.push(reset);
 
   return (
     <div className="App">

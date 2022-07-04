@@ -1,4 +1,6 @@
 .opened-cube {
+  grid-row: 3/6;
+  grid-column: 1/5;
   aspect-ratio: 4/3;
   width: 90%;
   display: grid;
