@@ -5,16 +5,22 @@
   background-color: #282c34;
   height: 100vh;
   aspect-ratio: 1;
-  display: grid;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  grid-template-rows: 10;
+  grid-template-columns: 5;
+  flex-wrap: column;
   font-size: larger;
   color: white;
 }
 
 .title {
+  display: block;
   margin: 0em;
+}
+
+.cube3d {
+  max-width: 50vw;
+  max-height: 50vh;
+  justify-self: center;
 }
 
 .App-link {
@@ -22,9 +28,10 @@
 }
 
 .buttons {
-  grid-row: 6;
-  grid-column: center;
   display: grid;
+  margin-top: 100px;
+  grid-row: 8 / 10;
+  grid-column: 2 / 3;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 0.2em;
 }

@@ -1,8 +1,8 @@
 .opened-cube {
-  grid-row: 3/6;
-  grid-column: 1/5;
-  aspect-ratio: 4/3;
-  width: 90%;
+  grid-row: 2/6;
+  grid-column: 1/7;
+  max-width: 80vw;
+  max-height: 80vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
