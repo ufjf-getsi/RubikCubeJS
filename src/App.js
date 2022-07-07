@@ -7,16 +7,22 @@ import LargeCube from "./components/LargeCube/LargeCube.js";
 import "./App.css";
 
 export default function App() {
-  //const cube =  setCubeInitialValues();
   const [cube, setCube] = useState(setCubeInitialValues());
+  const [moveHistory, setMoveHistory] = useState([]);
+  const [moveHistoryIndex, setMoveHistoryIndex] = useState(-1);
 
   function doCubeMove(move) {
     doMove(move, cube);
     setCube([...cube]);
+    if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
+    else moveHistory[moveHistoryIndex + 1] = move;
+    setMoveHistory([...moveHistory]);
+    setMoveHistoryIndex(moveHistoryIndex + 1);
   }
   const reset = (
     <button
       className="reset-button"
+      key={"reset"}
       onClick={function click() {
         setCube([...setCubeInitialValues()]);
       }}
@@ -24,6 +30,51 @@ export default function App() {
       {"Reset"}
     </button>
   );
+  const undo = (
+    <button
+      className="undo-button"
+      key={"undo"}
+      onClick={function click() {
+        undoMove();
+      }}
+    >
+      {"Undo"}
+    </button>
+  );
+  const redo = (
+    <button
+      className="redo-button"
+      key={"redo"}
+      onClick={function click() {
+        redoMove();
+      }}
+    >
+      {"Redo"}
+    </button>
+  );
+  function redoMove() {
+    if (moveHistoryIndex > moveHistory.length - 2) return;
+    const nextMove = moveHistory[moveHistoryIndex + 1];
+    doMove(nextMove, cube);
+    setCube([...cube]);
+    setMoveHistoryIndex(moveHistoryIndex + 1);
+  }
+  function undoMove() {
+    if (moveHistoryIndex < 0) return;
+    else if (moveHistoryIndex == 0) {
+      setCube([...setCubeInitialValues()]);
+    } else {
+      const lastMove = moveHistory[moveHistoryIndex];
+      if (lastMove == lastMove.toLowerCase()) {
+        doMove(lastMove.toUpperCase(), cube);
+        setCube([...cube]);
+      } else {
+        doMove(lastMove.toLowerCase(), cube);
+        setCube([...cube]);
+      }
+    }
+    setMoveHistoryIndex(moveHistoryIndex - 1);
+  }
   const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
   const elementButtons = [];
   for (let b = 0; b < commands.length; b++) {
@@ -45,20 +96,24 @@ export default function App() {
     );
   }
   elementButtons.push(reset);
+  elementButtons.push(undo);
+  elementButtons.push(redo);
 
   return (
     <div className="App">
       <h1 className="title">Rubik's Cube</h1>
-      <Canvas colormanagement>
-        <OrbitControls />
-        <Stars fade depth={1.2} />
-        <ambientLight intensity={0.2} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Suspense fallback={null}>
-          <LargeCube cube={cube} />
-        </Suspense>
-      </Canvas>
+      <div className="cube3d">
+        <Canvas colormanagement>
+          <OrbitControls />
+          <Stars fade depth={1.2} />
+          <ambientLight intensity={0.2} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+          <pointLight position={[-10, -10, -10]} />
+          <Suspense fallback={null}>
+            <LargeCube cube={cube} />
+          </Suspense>
+        </Canvas>
+      </div>
       <OpenedCube cube={cube} />
 
       <div className="buttons">{elementButtons}</div>
