@@ -95,9 +95,6 @@ export default function App() {
       </button>
     );
   }
-  elementButtons.push(reset);
-  elementButtons.push(undo);
-  elementButtons.push(redo);
 
   return (
     <div className="App">
@@ -116,7 +113,12 @@ export default function App() {
       </div>
       <OpenedCube cube={cube} />
 
-      <div className="buttons">{elementButtons}</div>
+      <div className="controls">
+        {reset}
+        <div className="move-buttons">{elementButtons}</div>
+        {undo}
+        {redo}
+      </div>
     </div>
   );
 }
