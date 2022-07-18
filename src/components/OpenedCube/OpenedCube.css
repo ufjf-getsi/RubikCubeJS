@@ -1,29 +1,25 @@
 .opened-cube {
-    aspect-ratio: 4/3;
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas:
-        ". top . ."
-        "left front right back"
-        ". bottom . ."
-    ;
-    grid-gap: 3%;
-    padding-left: 5%;
-    padding-right: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    ". top . ."
+    "left front right back"
+    ". bottom . .";
+  grid-gap: 3%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-@media screen and (max-width: 575.98px) {
-    .opened-cube {
-        aspect-ratio: 3/4;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-areas:
-            ". top ."
-            "left front right"
-            ". bottom ."
-            ". back ."
-        ;
-    }
+@media screen and (max-width: 575px) {
+  .opened-cube {
+    aspect-ratio: 3/4;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      ". top ."
+      "left front right"
+      ". bottom ."
+      ". back .";
+  }
 }
