@@ -119,6 +119,9 @@ export default function App() {
         {undo}
         {redo}
       </div>
+      <div className="chat">
+        <input type="text" /> <button> enviar </button>
+      </div>
     </div>
   );
 }
