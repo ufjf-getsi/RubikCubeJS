@@ -1,15 +1,15 @@
 {
-  "main.css": "/RubikCubeJS/static/css/main.736021a8.chunk.css",
-  "main.js": "/RubikCubeJS/static/js/main.6834d18b.chunk.js",
-  "main.js.map": "/RubikCubeJS/static/js/main.6834d18b.chunk.js.map",
+  "main.css": "/RubikCubeJS/static/css/main.9a3888aa.chunk.css",
+  "main.js": "/RubikCubeJS/static/js/main.1b2c3216.chunk.js",
+  "main.js.map": "/RubikCubeJS/static/js/main.1b2c3216.chunk.js.map",
   "runtime~main.js": "/RubikCubeJS/static/js/runtime~main.9d0d5ba1.js",
   "runtime~main.js.map": "/RubikCubeJS/static/js/runtime~main.9d0d5ba1.js.map",
-  "static/js/2.5406373b.chunk.js": "/RubikCubeJS/static/js/2.5406373b.chunk.js",
-  "static/js/2.5406373b.chunk.js.map": "/RubikCubeJS/static/js/2.5406373b.chunk.js.map",
+  "static/js/2.066ea2f9.chunk.js": "/RubikCubeJS/static/js/2.066ea2f9.chunk.js",
+  "static/js/2.066ea2f9.chunk.js.map": "/RubikCubeJS/static/js/2.066ea2f9.chunk.js.map",
   "static/js/3.29e3822b.chunk.js": "/RubikCubeJS/static/js/3.29e3822b.chunk.js",
   "static/js/3.29e3822b.chunk.js.map": "/RubikCubeJS/static/js/3.29e3822b.chunk.js.map",
   "index.html": "/RubikCubeJS/index.html",
-  "precache-manifest.5dca57996f02ad8ddbdffe7215556313.js": "/RubikCubeJS/precache-manifest.5dca57996f02ad8ddbdffe7215556313.js",
+  "precache-manifest.d83017fec140db1b08a5f00cfd0e3d9a.js": "/RubikCubeJS/precache-manifest.d83017fec140db1b08a5f00cfd0e3d9a.js",
   "service-worker.js": "/RubikCubeJS/service-worker.js",
-  "static/css/main.736021a8.chunk.css.map": "/RubikCubeJS/static/css/main.736021a8.chunk.css.map"
+  "static/css/main.9a3888aa.chunk.css.map": "/RubikCubeJS/static/css/main.9a3888aa.chunk.css.map"
 }
