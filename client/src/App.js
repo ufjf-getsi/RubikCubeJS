@@ -123,10 +123,12 @@ export default function App() {
     );
   }
 
-  const onClickRoom = () => {
-    setRoom(roomNumber); 
-    joinRoom()
-  }
+  // const onClickRoom = () => {
+  //   if (roomNumber > 0){
+  //     setRoom(roomNumber); 
+  //     joinRoom()
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -155,10 +157,10 @@ export default function App() {
         <input
           placeholder="Room Number..."
           onChange={(event) => {
-            roomNumber = event.target.value;
+            setRoom(event.target.value);
           }}
         />
-        <button onClick={onClickRoom}>Join Room</button>
+        <button onClick={joinRoom}>Join Room</button>
         <input type="text" placeholder="Message..." onChange={(event) => { setMessage(event.target.value); }} />
         <button onClick={sendMessage}> enviar </button>
         <h1>Message:</h1>
