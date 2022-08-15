@@ -20,11 +20,13 @@ export default function App() {
   const [messageReceived, setMessageReceived] = useState("");
   const [room, setRoom] = useState("");
 
-  let roomNumber = 0;
+  // let roomNumber = 0;
 
+  // -------- Comunicações com o servidor --------
   const joinRoom = () => {
     if (room !== "") {
       socket.emit("join_room", room);
+      // socket.emit("send_cube", {cube, room})
     }
   };
 
@@ -45,74 +47,50 @@ export default function App() {
       setCube([...setCubeInitialValues()]);
     });
   }, [socket]);
+  // ---------------------------------------------
 
-  function doCubeMove(move) {
-    doMove(move, cube);
-    socket.emit("send_cube", {cube, room})
-    if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
-    else moveHistory[moveHistoryIndex + 1] = move;
-    setMoveHistory([...moveHistory]);
-    setMoveHistoryIndex(moveHistoryIndex + 1);
-  }
+  // ------------------ Botões -------------------
   const reset = (
     <button
-      className="reset-button"
-      key={"reset"}
-      onClick={function click() {
-        setCube([...setCubeInitialValues()]);
-      }}
+    className="reset-button"
+    key={"reset"}
+    onClick={function click() {
+      setCube([...setCubeInitialValues()]);
       socket.emit("initial_cube", {cube, room})
+    }}
     >
       {"Reset"}
     </button>
   );
+  
   const undo = (
     <button
-      className="undo-button"
-      key={"undo"}
-      onClick={function click() {
-        undoMove();
-      }}
+    className="undo-button"
+    key={"undo"}
+    onClick={function click() {
+      undoMove();
+    }}
     >
       {"Undo"}
     </button>
   );
+  
   const redo = (
     <button
-      className="redo-button"
-      key={"redo"}
-      onClick={function click() {
-        redoMove();
-      }}
+    className="redo-button"
+    key={"redo"}
+    onClick={function click() {
+      redoMove();
+    }}
     >
       {"Redo"}
     </button>
   );
-  function redoMove() {
-    if (moveHistoryIndex > moveHistory.length - 2) return;
-    const nextMove = moveHistory[moveHistoryIndex + 1];
-    doMove(nextMove, cube);
-    setCube([...cube]);
-    setMoveHistoryIndex(moveHistoryIndex + 1);
-  }
-  function undoMove() {
-    if (moveHistoryIndex < 0) return;
-    else if (moveHistoryIndex == 0) {
-      setCube([...setCubeInitialValues()]);
-    } else {
-      const lastMove = moveHistory[moveHistoryIndex];
-      if (lastMove == lastMove.toLowerCase()) {
-        doMove(lastMove.toUpperCase(), cube);
-        setCube([...cube]);
-      } else {
-        doMove(lastMove.toLowerCase(), cube);
-        setCube([...cube]);
-      }
-    }
-    setMoveHistoryIndex(moveHistoryIndex - 1);
-  }
+  
   const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
+
   const elementButtons = [];
+
   for (let b = 0; b < commands.length; b++) {
     let character = commands[b];
     if (character === character.toLowerCase()) {
@@ -131,6 +109,45 @@ export default function App() {
       </button>
     );
   }
+  // ---------------------------------------------
+
+  // ----- Funções para movimentação do cubo -----
+  function doCubeMove(move) {
+    doMove(move, cube);
+    socket.emit("send_cube", {cube, room})
+    if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
+    else moveHistory[moveHistoryIndex + 1] = move;
+    setMoveHistory([...moveHistory]);
+    setMoveHistoryIndex(moveHistoryIndex + 1);
+  }
+
+  function redoMove() {
+    if (moveHistoryIndex > moveHistory.length - 2) return;
+    const nextMove = moveHistory[moveHistoryIndex + 1];
+    doMove(nextMove, cube);
+    socket.emit("send_cube", {cube, room})
+    setMoveHistoryIndex(moveHistoryIndex + 1);
+  }
+
+  function undoMove() {
+    if (moveHistoryIndex < 0) return;
+    else if (moveHistoryIndex === 0) {
+      setCube([...setCubeInitialValues()]);
+    } else {
+      const lastMove = moveHistory[moveHistoryIndex];
+      if (lastMove === lastMove.toLowerCase()) {
+        doMove(lastMove.toUpperCase(), cube);
+        socket.emit("send_cube", {cube, room})
+      } else {
+        doMove(lastMove.toLowerCase(), cube);
+        socket.emit("send_cube", {cube, room})
+      }
+    }
+    setMoveHistoryIndex(moveHistoryIndex - 1);
+  }
+
+  
+  // ---------------------------------------------
 
   // const onClickRoom = () => {
   //   if (roomNumber > 0){
@@ -162,17 +179,13 @@ export default function App() {
         {undo}
         {redo}
       </div>
+
       <div className="chat">
-        <input
-          placeholder="Room Number..."
-          onChange={(event) => {
-            setRoom(event.target.value);
-          }}
-        />
-        <button onClick={joinRoom}>Join Room</button>
-        <input type="text" placeholder="Message..." onChange={(event) => { setMessage(event.target.value); }} />
-        <button onClick={sendMessage}> enviar </button>
-        <h1>Message:</h1>
+        <input placeholder="Número da Sala..." onChange={(event) => {setRoom(event.target.value); }} />
+        <button onClick={joinRoom}>Entrar na sala</button>
+        <input type="text" placeholder="Escreva sua Mensagem..." onChange={(event) => { setMessage(event.target.value); }} />
+        <button onClick={sendMessage}> Enviar </button>
+        <h3>Mensagem:</h3>
         {messageReceived}
       </div>
     </div>
