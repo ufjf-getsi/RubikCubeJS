@@ -36,11 +36,15 @@ export default function App() {
     socket.on("receive_message", (data) => {
       setMessageReceived(data.message);
     });
+
+    socket.on("move_cube", (data) => {
+      setCube([...data.cube]);
+    });
   }, [socket]);
 
   function doCubeMove(move) {
     doMove(move, cube);
-    setCube([...cube])
+    socket.emit("send_cube", {cube, room})
     if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
     else moveHistory[moveHistoryIndex + 1] = move;
     setMoveHistory([...moveHistory]);
