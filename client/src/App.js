@@ -40,6 +40,10 @@ export default function App() {
     socket.on("move_cube", (data) => {
       setCube([...data.cube]);
     });
+
+    socket.on("set_cube", () => {
+      setCube([...setCubeInitialValues()]);
+    });
   }, [socket]);
 
   function doCubeMove(move) {
@@ -57,6 +61,7 @@ export default function App() {
       onClick={function click() {
         setCube([...setCubeInitialValues()]);
       }}
+      socket.emit("initial_cube", {cube, room})
     >
       {"Reset"}
     </button>

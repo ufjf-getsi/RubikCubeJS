@@ -26,6 +26,10 @@ io.on('connection', (socket) => {
   socket.on('send_cube', (data)=>{
     socket.to(data.room).emit("move_cube", data);
   });
+
+  socket.on('initial_cube', (data)=>{
+    socket.to(data.room).emit("set_cube");
+  });
 });
 
 const port = 3001
