@@ -1,19 +1,23 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import { doMove } from "./rubik.mjs";
 import OpenedCube from "./components/OpenedCube/OpenedCube";
 import LargeCube from "./components/LargeCube/LargeCube.js";
+import { io } from 'socket.io-client'
 import "./App.css";
 
+const socket = io('http://localhost:3001');
+
 export default function App() {
+  // Cube States
   const [cube, setCube] = useState(setCubeInitialValues());
   const [moveHistory, setMoveHistory] = useState([]);
   const [moveHistoryIndex, setMoveHistoryIndex] = useState(-1);
 
   function doCubeMove(move) {
     doMove(move, cube);
-    setCube([...cube]);
+    setCube([...cube])
     if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
     else moveHistory[moveHistoryIndex + 1] = move;
     setMoveHistory([...moveHistory]);
@@ -118,9 +122,6 @@ export default function App() {
         <div className="move-buttons">{elementButtons}</div>
         {undo}
         {redo}
-      </div>
-      <div className="chat">
-        <input type="text" /> <button> enviar </button>
       </div>
     </div>
   );
