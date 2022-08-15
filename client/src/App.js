@@ -15,6 +15,29 @@ export default function App() {
   const [moveHistory, setMoveHistory] = useState([]);
   const [moveHistoryIndex, setMoveHistoryIndex] = useState(-1);
 
+  // Chat States
+  const [message, setMessage] = useState("");
+  const [messageReceived, setMessageReceived] = useState("");
+  const [room, setRoom] = useState("");
+
+  let roomNumber = 0;
+
+  const joinRoom = () => {
+    if (room !== "") {
+      socket.emit("join_room", room);
+    }
+  };
+
+  const sendMessage = () => {
+    socket.emit("send_message", { message, room });
+  }
+
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessageReceived(data.message);
+    });
+  }, [socket]);
+
   function doCubeMove(move) {
     doMove(move, cube);
     setCube([...cube])
@@ -100,9 +123,14 @@ export default function App() {
     );
   }
 
+  const onClickRoom = () => {
+    setRoom(roomNumber); 
+    joinRoom()
+  }
+
   return (
     <div className="App">
-      <h1 className="title">Rubik's Cube</h1>
+      <h1 className="title">Rubik's Cube - Sala {room}</h1>
       <div className="cube3d">
         <Canvas colormanagement>
           <OrbitControls />
@@ -122,6 +150,19 @@ export default function App() {
         <div className="move-buttons">{elementButtons}</div>
         {undo}
         {redo}
+      </div>
+      <div className="chat">
+        <input
+          placeholder="Room Number..."
+          onChange={(event) => {
+            roomNumber = event.target.value;
+          }}
+        />
+        <button onClick={onClickRoom}>Join Room</button>
+        <input type="text" placeholder="Message..." onChange={(event) => { setMessage(event.target.value); }} />
+        <button onClick={sendMessage}> enviar </button>
+        <h1>Message:</h1>
+        {messageReceived}
       </div>
     </div>
   );
