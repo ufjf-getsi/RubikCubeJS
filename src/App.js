@@ -145,8 +145,6 @@ export default function App() {
     }
     setMoveHistoryIndex(moveHistoryIndex - 1);
   }
-
-  
   // ---------------------------------------------
 
   // const onClickRoom = () => {
@@ -181,7 +179,7 @@ export default function App() {
       </div>
 
       <div className="chat">
-        <input placeholder="Número da Sala..." onChange={(event) => {setRoom(event.target.value); }} />
+        <input type="number" placeholder="Número da Sala..." onChange={(event) => {setRoom(event.target.value); }} />
         <button onClick={joinRoom}>Entrar na sala</button>
         <input type="text" placeholder="Escreva sua Mensagem..." onChange={(event) => { setMessage(event.target.value); }} />
         <button onClick={sendMessage}> Enviar </button>

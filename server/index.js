@@ -1,8 +1,5 @@
 const { createServer } = require('http');
 const { Server } = require('socket.io');
-// const cors = require('cors');
-
-// app.use(cors);
 
 const httpServer = createServer()
 const io = new Server(httpServer, {
@@ -17,7 +14,6 @@ io.on('connection', (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data);
   });
-
 
   socket.on('send_message', (data)=>{
     socket.to(data.room).emit("receive_message", data);
