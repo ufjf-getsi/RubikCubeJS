@@ -1,5 +1,14 @@
+const PORT = process.env.PORT || 3000;
+const PORT_SOCKET = process.env.PORT_SOCKET || 3001;
+
+
 const { createServer } = require('http');
 const { Server } = require('socket.io');
+const express = require("express");
+
+const server = express()
+  .use(express.static(`build`))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 const httpServer = createServer()
 const io = new Server(httpServer, {
@@ -28,6 +37,5 @@ io.on('connection', (socket) => {
   });
 });
 
-const port = 3001
-httpServer.listen(port)
-console.log('Listening on port ' + port + '...')
+httpServer.listen(PORT_SOCKET)
+console.log('Listening on port ' + PORT_SOCKET + '...')
