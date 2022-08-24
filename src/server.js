@@ -17,8 +17,7 @@ app.listen(PORT);
 console.log("Listening http on port " + PORT + "...");
 
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
+const io = new Server(app, {
   cors: {
     origin: "*",
   },
@@ -44,5 +43,3 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(PORT_SOCKET);
-console.log("Listening socket on port " + PORT_SOCKET + "...");
