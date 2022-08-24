@@ -1,7 +1,7 @@
 {
   "name": "reactrubik",
   "version": "0.1.0",
-  "homepage": "https://ufjf-getsi.github.io/RubikCubeJS/",
+  "homepage": "https://mprubik.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^9.11.3",
