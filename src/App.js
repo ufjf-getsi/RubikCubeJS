@@ -7,7 +7,9 @@ import LargeCube from "./components/LargeCube/LargeCube.js";
 import { io } from 'socket.io-client'
 import "./App.css";
 
-const socket = io('https://mprubik.herokuapp.com:3001');
+const IS_PROD = process.env.NODE_ENV === "production";
+const URL = IS_PROD ? "https://teste-production123.up.railway.app" : "http://localhost:3001";
+const socket = io(URL);
 
 export default function App() {
   // Cube States
