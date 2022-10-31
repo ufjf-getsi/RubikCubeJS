@@ -19,19 +19,26 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [messageReceived, setMessageReceived] = useState("");
   const [room, setRoom] = useState("");
+  const [visible, setVisible] = useState(false);
 
   // let roomNumber = 0;
 
   // -------- Comunicações com o servidor --------
+  const clearInput = () => {
+    document.querySelectorAll("input").forEach((input) => (input.value = ""));
+  };
+
   const joinRoom = () => {
     if (room !== "") {
       socket.emit("join_room", room);
+      clearInput();
       // socket.emit("send_cube", {cube, room})
     }
   };
 
   const sendMessage = () => {
     socket.emit("send_message", { message, room });
+    clearInput();
   }
 
   useEffect(() => {
@@ -47,46 +54,55 @@ export default function App() {
       setCube([...setCubeInitialValues()]);
     });
   }, [socket]);
+
+  useEffect(() => {
+    setVisible(true);
+    const id = setTimeout(() => {
+      setVisible(false);
+    }, 5000);
+
+    return () => clearTimeout(id);
+  }, [messageReceived]);
   // ---------------------------------------------
 
   // ------------------ Botões -------------------
   const reset = (
     <button
-    className="reset-button"
-    key={"reset"}
-    onClick={function click() {
-      setCube([...setCubeInitialValues()]);
-      socket.emit("initial_cube", {cube, room})
-    }}
+      className="reset-button"
+      key={"reset"}
+      onClick={function click() {
+        setCube([...setCubeInitialValues()]);
+        socket.emit("initial_cube", { cube, room })
+      }}
     >
       {"Reset"}
     </button>
   );
-  
+
   const undo = (
     <button
-    className="undo-button"
-    key={"undo"}
-    onClick={function click() {
-      undoMove();
-    }}
+      className="undo-button"
+      key={"undo"}
+      onClick={function click() {
+        undoMove();
+      }}
     >
       {"Undo"}
     </button>
   );
-  
+
   const redo = (
     <button
-    className="redo-button"
-    key={"redo"}
-    onClick={function click() {
-      redoMove();
-    }}
+      className="redo-button"
+      key={"redo"}
+      onClick={function click() {
+        redoMove();
+      }}
     >
       {"Redo"}
     </button>
   );
-  
+
   const commands = ["L", "R", "U", "D", "F", "B", "l", "r", "u", "d", "f", "b"];
 
   const elementButtons = [];
@@ -109,12 +125,47 @@ export default function App() {
       </button>
     );
   }
+
+  const inputRoom = (
+    <input
+      class="input-room"
+      type="number"
+      placeholder="Sala nº..."
+      onChange={(event) => { setRoom(event.target.value); }}
+    />
+  );
+
+  const buttonRoom = (
+    <button
+      class="button-room"
+      onClick={joinRoom}>
+      Entrar na sala
+    </button>
+  );
+
+  const inputMessage = (
+    <input
+      class="input-message"
+      type="text"
+      placeholder="Escreva sua Mensagem..."
+      onChange={(event) => { setMessage(event.target.value); }}
+    />
+  );
+
+  const buttonMessage = (
+    <button
+      class="button-message"
+      onClick={sendMessage}>
+      Enviar
+    </button>
+  );
+
   // ---------------------------------------------
 
   // ----- Funções para movimentação do cubo -----
   function doCubeMove(move) {
     doMove(move, cube);
-    socket.emit("send_cube", {cube, room})
+    socket.emit("send_cube", { cube, room })
     if (moveHistory.length === moveHistoryIndex + 1) moveHistory.push(move);
     else moveHistory[moveHistoryIndex + 1] = move;
     setMoveHistory([...moveHistory]);
@@ -125,7 +176,7 @@ export default function App() {
     if (moveHistoryIndex > moveHistory.length - 2) return;
     const nextMove = moveHistory[moveHistoryIndex + 1];
     doMove(nextMove, cube);
-    socket.emit("send_cube", {cube, room})
+    socket.emit("send_cube", { cube, room })
     setMoveHistoryIndex(moveHistoryIndex + 1);
   }
 
@@ -137,10 +188,10 @@ export default function App() {
       const lastMove = moveHistory[moveHistoryIndex];
       if (lastMove === lastMove.toLowerCase()) {
         doMove(lastMove.toUpperCase(), cube);
-        socket.emit("send_cube", {cube, room})
+        socket.emit("send_cube", { cube, room })
       } else {
         doMove(lastMove.toLowerCase(), cube);
-        socket.emit("send_cube", {cube, room})
+        socket.emit("send_cube", { cube, room })
       }
     }
     setMoveHistoryIndex(moveHistoryIndex - 1);
@@ -156,7 +207,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1 className="title">Rubik's Cube - Sala {room}</h1>
+      <h2 className="title">Rubik's Cube {!room ? "" : "- Sala " + room}</h2>
       <div className="cube3d">
         <Canvas colormanagement>
           <OrbitControls />
@@ -179,12 +230,12 @@ export default function App() {
       </div>
 
       <div className="chat">
-        <input type="number" placeholder="Número da Sala..." onChange={(event) => {setRoom(event.target.value); }} />
-        <button onClick={joinRoom}>Entrar na sala</button>
-        <input type="text" placeholder="Escreva sua Mensagem..." onChange={(event) => { setMessage(event.target.value); }} />
-        <button onClick={sendMessage}> Enviar </button>
-        <h3>Mensagem:</h3>
-        {messageReceived}
+        <div className="message">{visible ? messageReceived : null}</div>
+        
+        {inputRoom}
+        {buttonRoom}
+        {inputMessage}
+        {buttonMessage}
       </div>
     </div>
   );
