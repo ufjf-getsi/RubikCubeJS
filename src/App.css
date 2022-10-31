@@ -27,6 +27,7 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: 10px 10px 0px 10px;
 }
 
 .move-buttons {
@@ -43,6 +44,7 @@
 button.reset-button {
   grid-row: 1 / span 2;
   grid-column: 1;
+  height: 100%;
 }
 button.undo-button {
 }
@@ -70,6 +72,39 @@ button.move-button:focus {
 button.move-button:active {
   border-color: #7b7d7d;
   background-color: #979a9a;
+}
+
+.input-room {
+  height: 78%;
+  width: 32%;
+  font-size: large;
+  margin: 5px;
+}
+
+.button-room {
+  height: 100%;
+  width: 50%;
+  font-size: large;
+  margin: 5px;
+}
+
+.input-message {
+  height: 90%;
+  width: 85%;
+  font-size: large;
+  margin: 5px;
+}
+
+.button-message {
+  height: 100%;
+  width: 87.5%;
+  font-size: large;
+  margin: 5px;
+}
+
+.message{
+  font-size: xx-large;
+  margin: 10px;
 }
 
 @media screen and (max-width: 575px) {
