@@ -20,8 +20,11 @@ export default function App() {
   // Chat States
   const [message, setMessage] = useState("");
   const [messageReceived, setMessageReceived] = useState("");
-  const [room, setRoom] = useState("");
   const [visible, setVisible] = useState(false);
+  
+  // Room States
+  const [room, setRoom] = useState("");
+  const [warnRoom, setWarnRoom] = useState("");
 
   // let roomNumber = 0;
 
@@ -44,6 +47,10 @@ export default function App() {
   }
 
   useEffect(() => {
+      socket.emit("send_cube", {cube, room});
+  }, [warnRoom]);
+
+  useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageReceived(data.message);
     });
@@ -55,6 +62,10 @@ export default function App() {
     socket.on("set_cube", () => {
       setCube([...setCubeInitialValues()]);
     });
+
+    socket.on("warn_all", (data) => { 
+      setWarnRoom(data.message);
+      });
   }, [socket]);
 
   useEffect(() => {

@@ -26,6 +26,7 @@ io.on("connection", (socket) => {
 
   socket.on("join_room", (data) => {
     socket.join(data);
+    socket.to(data).emit("warn_all", { message: "Um novo usuário entrou na sala." });
   });
 
   socket.on("send_message", (data) => {
